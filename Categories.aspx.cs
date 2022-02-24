@@ -104,8 +104,16 @@ public partial class Categories : System.Web.UI.Page
         Button btn = (Button)sender;
         SqlCommand cmd = new SqlCommand("DELETE FROM [categories] WHERE [category_id] = @category_id", con);
         cmd.Parameters.AddWithValue("@category_id", btn.CommandArgument);
+        int s = 0;
         con.Open();
-        int s = cmd.ExecuteNonQuery();
+        try
+        {
+            s = cmd.ExecuteNonQuery();
+        }
+        catch (Exception)
+        {
+            Response.Write("<script language=javascript>alert ('You cannot delete this category as the system contains product of its type!'); </script>");
+        }
         con.Close();
         if (s == 1)
         {
