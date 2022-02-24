@@ -17,7 +17,7 @@
     <div>
     
         <table style="width:50%;" align="center" border="0" cellpadding="5" 
-            cellspacing="0" frame="border">
+            cellspacing="0" frame="void">
             <tr>
                 <td align="center" colspan="2">
                     <asp:Label ID="Label1" runat="server" BorderColor="#A55129" 
